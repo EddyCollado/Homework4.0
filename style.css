@@ -13,14 +13,37 @@ body,
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #f9fbfd;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+  color: #333;
+  font-weight: 300;
+  text-align: center;
+  background-color: #f8f6f0;
 }
 
+
+
+h1{
+  font-weight: 300;
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #444;
+  color: #fff;
+}
+
+#clockdiv {
+  
+  padding-top: 9px;
+  padding-left: 80%;
+}
+
+
 .wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-top: 10px;
+  padding-left: 450px;
+  padding-right: 450px;
 }
 
 header {
@@ -28,6 +51,12 @@ header {
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
+}
+
+.quiz-container{
+  position: relative;
+  height: 200px;
+  margin-top: 40px;
 }
 
 .card {
@@ -66,52 +95,6 @@ header {
   content: " ";
   display: block;
   clear: both;
-}
-
-.btn {
-  border: none;
-  background-color: hsl(360, 91%, 36%);
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
-  display: inline-block;
-  font-size: 22px;
-  line-height: 22px;
-  margin: 16px 16px 16px 8%;
-  padding: 14px 34px;
-  text-align: center;
-  cursor: pointer;
-}
-
-button {
-  cursor: default;
-  background: #c0c7cf;
-}
-
-.float-right {
-  float: right;
-}
-
-#password {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  display: block;
-  width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
-  border-radius: 6px;
-  resize: none;
-  overflow: hidden;
 }
 
 @media (max-width: 690px) {
