@@ -42,8 +42,8 @@ h1{
 
 .wrapper {
   padding-top: 10px;
-  padding-left: 450px;
-  padding-right: 450px;
+  padding-left: 300px;
+  padding-right: 300px;
 }
 
 header {
@@ -96,7 +96,7 @@ header {
   display: block;
   clear: both;
 }
-
+/* Media queries for device screen sizes */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
