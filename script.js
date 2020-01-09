@@ -5,6 +5,8 @@ var secondsLeft = document.querySelector("#clockdiv > span");
 var startBtn = document.querySelector("#submit");
 
 var sec = 75;
+var highScore = 0;
+
 // fix the html/java conflict of the startBtn function 
 // var time = setInterval(myTimer, 1000)
 
@@ -18,8 +20,10 @@ function myTimer() {
     if (sec == -1) {
         clearInterval(time);
         alert("Out of time!");
-    }
+    } 
 }
+
+
 
 
 

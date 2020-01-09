@@ -21,12 +21,34 @@
       correctAnswer: "c"
     },
     {
-      question: "Where is Waldo really?",
+      question: "Arrays in JavaScript can be used to store ____.",
       answers: {
-        a: "Antarctica",
-        b: "Exploring the Pacific Ocean",
-        c: "Sitting in a tree",
-        d: "Minding his own business, so stop asking"
+        a: "numbers and strings",
+        b: "other arrays",
+        c: "booleans",
+        d: "all of the above"
+      },
+
+      correctAnswer: "d"
+    },
+    {
+      question: "String values must be enclosed within ____ when being assigned to variables.",
+      answers: {
+        a: "commas",
+        b: "curly brackets",
+        c: "quotes",
+        d: "parentheses"
+      },
+  
+      correctAnswer: "c"
+    },
+    {
+      question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+      answers: {
+        a: "JavaScript",
+        b: "terminal / bash",
+        c: "for loops",
+        d: "console.log"
       },
       correctAnswer: "d"
     }
