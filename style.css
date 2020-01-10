@@ -21,7 +21,9 @@ body {
   background-color: #f8f6f0;
 }
 
-
+#submit:hover {
+  background-color: #38a;
+}
 
 h1{
   font-weight: 300;
