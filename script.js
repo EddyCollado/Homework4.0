@@ -1,7 +1,7 @@
 //step 1: create relatable variables to build with
 var timer = document.querySelector("#clockdiv");
 var viewHighscores = document.querySelector("body > ul > li > a");
-var secondsLeft = document.querySelector("#clockdiv > span");
+var secondsLeft = document.querySelector(".seconds");
 var startBtn = document.querySelector("#start");
 var questionsEl = document.querySelector("#questions");
 var choicesEl = document.querySelector("#choices");
@@ -79,10 +79,10 @@ var timerId;
     function quizEnd () {
       clearInterval(timerId);
 
-      var gameOverEl = document.getElementById("gameOver");
+      var gameOverEl = document.querySelector("#gameOver");
       gameOverEl.removeAttribute("class");
 
-      var finalScoreEl = document.getElementById("final-score");
+      var finalScoreEl = document.querySelector("#finalScore");
       finalScoreEl.textContent = sec;
 
       questionsEl.setAttribute("class", "hide");
