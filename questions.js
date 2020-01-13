@@ -1,56 +1,29 @@
 // Store your questions as an array of objects in a separate file, questions.js, that follows this format:
-   const myQuestions = [
+   var myQuestions = [
     {
-      question: "1.) Commonly used data types DO NOT include:",
-      answers: {
-        a: "strings",
-        b: "booleans",
-        c: "alerts",
-        d: "numbers"
-      },
-      correctAnswer: "c"
+      title: "Commonly used data types DO NOT include:",
+      choices: ["Strings", "Booleans", "Alerts", "Numbers"],
+      answer: "Alerts"
     },
     {
-      question: "2.) The condition in an if / else statement is enclosed within ____.",
-      answers: {
-        a: "quotes",
-        b: "curly brackets",
-        c: "parentheses",
-        d: "square brackets"
-      },
-      correctAnswer: "c"
+      title: "The condition in an if / else statement is enclosed within ____.",
+      choices: ["Quotes", "Curly brackets", "Parentheses", "Square brackets"],
+      answer: "Parentheses"
     },
     {
-      question: "3.) Arrays in JavaScript can be used to store ____.",
-      answers: {
-        a: "numbers and strings",
-        b: "other arrays",
-        c: "booleans",
-        d: "all of the above"
-      },
-
-      correctAnswer: "d"
+      title: "Arrays in JavaScript can be used to store ____.",
+      choices: ["Numbers and strings", "Other arrays", "Booleans", "All of the above"],
+      answer: "All of the above"
     },
     {
-      question: "4.) String values must be enclosed within ____ when being assigned to variables.",
-      answers: {
-        a: "commas",
-        b: "curly brackets",
-        c: "quotes",
-        d: "parentheses"
-      },
-  
-      correctAnswer: "c"
+      title: "String values must be enclosed within ____ when being assigned to variables.",
+      choices: ["Commas", "Curly brackets", "Quotes", "Parentheses"],
+      answer: "Quotes"
     },
     {
-      question: "5.) A very useful tool used during development and debugging for printing content to the debugger is:",
-      answers: {
-        a: "JavaScript",
-        b: "terminal / bash",
-        c: "for loops",
-        d: "console.log"
-      },
-      correctAnswer: "d"
+      title: "A very useful tool used during development and debugging for printing content to the debugger is:",
+      choices: ["JavaScript", "Terminal / Bash", "For loops", "Console.log"],
+      answer: "Console.log"
     }
   ];
 
