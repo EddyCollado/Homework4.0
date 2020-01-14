@@ -15,8 +15,8 @@ var currentQuestionIndex = 0;
 //Declare the timer as a global scope to access in and outside of functions, this helped so much!
 var timerId;
 
-//Step 3: create a function using the forEach loop to render the quiz and initiate timer. Try using a slide or hide command
-    function startQuiz () {
+//Step 3: A function that clears the current window to begin the quiz and initiate timer. I attempted a slideshow but hide command works easier
+    function renderQuiz () {
       var quizArea = document.querySelector("#card > div > p")
       quizArea.setAttribute("class", "hide");
       startBtn.setAttribute("class", "hide");
@@ -36,15 +36,16 @@ var timerId;
       titleEl.textContent = currentQuestion.title;
       choicesEl.innerHTML = "";
 // Made a loop for the choices, at first I had a for loop, but had trouble getting that to work correctly.
+//Because I was able to put the Index of myQuestions into a usable var, I can call back the "choice" event for the loop
       currentQuestion.choices.forEach(function(choice) {
 // creates a new button for each choice with their corresponding value
         var choiceBtn = document.createElement("button");
         choiceBtn.setAttribute("class", "choice");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.setAttribute("class", "choicebtn");
-
+//sets the choices in each button for the corresponding question
         choiceBtn.textContent = choice;
-// Add an event to starts a function question questionCheck value to move on to the next question
+// Add a click event to start a function that checks the matching selected value and moves on to the next question
         choiceBtn.onclick = questionCheck;
         choicesEl.appendChild(choiceBtn);
       });
@@ -53,6 +54,8 @@ var timerId;
     
 //Step 4: Add a function that advances the question while keeping track of the timer
     function questionCheck () {
+//'this' refers to the upmost scope where it is defined, in this case it is used as an object method to bind .value to CurrentQuestionIndex
+//if the answer doesnt match with the value, deduct 15 seconds
       if (this.value !== myQuestions[currentQuestionIndex].answer) {
         sec -= 15;
 
@@ -61,26 +64,27 @@ var timerId;
         }
         secondsLeft.textContent = sec;
       }  
+// Advance to the next question     
         currentQuestionIndex ++;
-
+// if the quiz length exceeds the amount of remaining questions, end the quiz, else , retreive the next question!
         if (currentQuestionIndex === myQuestions.length) {
           quizEnd();
         } else {
           retrieveQues();
         }
     }
-//step 5: Trigger the end of the quiz by clearing the timmer and combing the final tally with the outcome of the timer
+//step 5: Trigger the end of the quiz by clearing the timer and combining the final tally with the outcome of the timer
     function quizEnd () {
       var gameOverEl = document.querySelector("#gameOver");
       var finalScoreEl = document.querySelector("#finalScore");
-      
+
       clearInterval(timerId);
 
       gameOverEl.removeAttribute("class");
       finalScoreEl.textContent = sec;
       questionsEl.setAttribute("class", "hide");
     }
-//Step 6: a function timer that corresponds to the currentQuestions.
+//Step 6: a functioning timer
     function timer () {
       sec--;
       secondsLeft.textContent = sec;
@@ -91,9 +95,9 @@ var timerId;
     }
     
 //Click event for the "Start Quiz" button
-startBtn.onclick = startQuiz;
+startBtn.onclick = renderQuiz;
 // on submit, show results
-//viewHighscores.addEventListener('click', showResults);
+
 
 //function renderQuiz() {
 //  x = JSON.stringify(myQuestions);
