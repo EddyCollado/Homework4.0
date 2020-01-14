@@ -1,11 +1,10 @@
 //step 1: create relatable variables to build with
-var timer = document.querySelector("#clockdiv");
 var viewHighscores = document.querySelector("body > ul > li > a");
 var secondsLeft = document.querySelector(".seconds");
 var startBtn = document.querySelector("#start");
 var questionsEl = document.querySelector("#questions");
 var choicesEl = document.querySelector("#choices");
-var quiz = document.querySelector("#card");
+var quizContainer = document.querySelector("#card");
 var questionNumber = document.querySelector("#question-number");
 var sec = 75;
 
@@ -20,56 +19,49 @@ var timerId;
       quizArea.setAttribute("class", "hide");
       startBtn.setAttribute("class", "hide");
       questionNumber.setAttribute("class", "hide");
-
       questionsEl.removeAttribute("class");
-
-      timerId = setInterval(clockTick, 1000);
+//Step 7: nest functioning timer to start of quiz
+      timerId = setInterval(timer, 1000);
 
       secondsLeft.textContent = sec;
-
       retrieveQues();
     }
 
     //Step 2: create a function that reveals the quiz questions in a forEach loop, rendering each quiz question attribute
     function retrieveQues () {
       var currentQuestion = myQuestions[currentQuestionIndex];
-
       var titleEl = document.querySelector("#question-header");
       titleEl.textContent = currentQuestion.title;
-
       choicesEl.innerHTML = "";
 // Made a loop for the choices, at first I had a for loop, but had trouble getting that to work correctly.
       currentQuestion.choices.forEach(function(choice) {
-// creates a new button for each choice with thier corresponding value
-        var choiceSelectors = document.createElement("button");
-        choiceSelectors.setAttribute("class", "choice");
-        choiceSelectors.setAttribute("value", choice);
-        
+// creates a new button for each choice with their corresponding value
+        var choiceBtn = document.createElement("button");
+        choiceBtn.setAttribute("class", "choice");
+        choiceBtn.setAttribute("value", choice);
+        choiceBtn.setAttribute("class", "choicebtn");
 
-        choiceSelectors.textContent = choice;
-// Add an event to starts a function checkQuestion value to move on to the next question
-        choiceSelectors.onclick = checkQuestion;
-
-        choicesEl.appendChild(choiceSelectors);
+        choiceBtn.textContent = choice;
+// Add an event to starts a function question questionCheck value to move on to the next question
+        choiceBtn.onclick = questionCheck;
+        choicesEl.appendChild(choiceBtn);
       });
     }
 
     
 //Step 4: Add a function that advances the question while keeping track of the timer
-    function checkQuestion () {
+    function questionCheck () {
       if (this.value !== myQuestions[currentQuestionIndex].answer) {
         sec -= 15;
 
         if (sec < 0) {
           sec = 0;
         }
-
         secondsLeft.textContent = sec;
       }  
         currentQuestionIndex ++;
 
         if (currentQuestionIndex === myQuestions.length) {
-
           quizEnd();
         } else {
           retrieveQues();
@@ -80,15 +72,14 @@ var timerId;
       clearInterval(timerId);
 
       var gameOverEl = document.querySelector("#gameOver");
-      gameOverEl.removeAttribute("class");
-
       var finalScoreEl = document.querySelector("#finalScore");
-      finalScoreEl.textContent = sec;
 
+      gameOverEl.removeAttribute("class");
+      finalScoreEl.textContent = sec;
       questionsEl.setAttribute("class", "hide");
     }
-
-    function clockTick () {
+//Step 6: add the timer that corresponds to the currentQuestions.
+    function timer () {
       sec--;
       secondsLeft.textContent = sec;
 
@@ -97,16 +88,10 @@ var timerId;
       }
     }
     
-
-
-
-
 startBtn.onclick = startQuiz;
 // on submit, show results
 //viewHighscores.addEventListener('click', showResults);
 
-
-    
 //function renderQuiz() {
 //  x = JSON.stringify(myQuestions);
   // Clear todoList element and update todoCountSpan
@@ -117,8 +102,7 @@ startBtn.onclick = startQuiz;
 //  var questionsArray = myQuestions[i];
 
 //  console.log(questionsArray);
-//}
-
+//  }
 
 //}
 
@@ -133,7 +117,6 @@ startBtn.onclick = startQuiz;
 //          clearInterval(time);
 //          alert("Out of time!");
 //          alert("Here are your results!"), 76000;
-
 //      } 
 //  }
 
