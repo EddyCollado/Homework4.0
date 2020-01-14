@@ -6,11 +6,13 @@ var questionsEl = document.querySelector("#questions");
 var choicesEl = document.querySelector("#choices");
 var quizContainer = document.querySelector("#card");
 var questionNumber = document.querySelector("#question-number");
+// Setting timer to a locked 75 seconds to count back from
 var sec = 75;
 
 
-
+// Setting the currentQIndex to begin at 0
 var currentQuestionIndex = 0;
+//Declare the timer as a global scope to access in and outside of functions, this helped so much!
 var timerId;
 
 //Step 3: create a function using the forEach loop to render the quiz and initiate timer. Try using a slide or hide command
@@ -69,16 +71,16 @@ var timerId;
     }
 //step 5: Trigger the end of the quiz by clearing the timmer and combing the final tally with the outcome of the timer
     function quizEnd () {
-      clearInterval(timerId);
-
       var gameOverEl = document.querySelector("#gameOver");
       var finalScoreEl = document.querySelector("#finalScore");
+      
+      clearInterval(timerId);
 
       gameOverEl.removeAttribute("class");
       finalScoreEl.textContent = sec;
       questionsEl.setAttribute("class", "hide");
     }
-//Step 6: add the timer that corresponds to the currentQuestions.
+//Step 6: a function timer that corresponds to the currentQuestions.
     function timer () {
       sec--;
       secondsLeft.textContent = sec;
@@ -88,6 +90,7 @@ var timerId;
       }
     }
     
+//Click event for the "Start Quiz" button
 startBtn.onclick = startQuiz;
 // on submit, show results
 //viewHighscores.addEventListener('click', showResults);
@@ -116,7 +119,6 @@ startBtn.onclick = startQuiz;
 //      if (sec == -1) {
 //          clearInterval(time);
 //          alert("Out of time!");
-//          alert("Here are your results!"), 76000;
 //      } 
 //  }
 
